@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edmar Salac | Personal Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #6a11cb;
+      --accent: #2575fc;
+      --bg-light: #f9f9f9;
+      --text-dark: #333;
+      --btn-zoom-scale: 1.1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header nav {
+      max-width: 1000px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+      font-weight: 600;
+      color: var(--primary);
+      user-select: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      position: relative;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: color 0.3s, transform 0.2s ease;
+      user-select: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+    /* Zoom effect on click */
+    nav a:active {
+      transform: scale(var(--btn-zoom-scale));
+      transition: transform 0.1s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+      background-color: rgba(37, 117, 252, 0.1);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 80px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      color: white;
+    }
+    .hero img {
+      width: clamp(120px, 20vw, 150px);
+      height: clamp(120px, 20vw, 150px);
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+      transition: transform 0.3s ease;
+      user-select: none;
+    }
+    .hero h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 10px;
+      user-select: text;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      max-width: 600px;
+      margin: auto;
+      user-select: text;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    section h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 2vw, 2rem);
+      margin-bottom: 20px;
+      color: var(--primary);
+      text-align: center;
+      user-select: text;
+    }
+
+    .about {
+      text-align: center;
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+      user-select: text;
+    }
+
+    /* Cards layout */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      user-select: text;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+      user-select: text;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+      user-select: text;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: #fff;
+      padding: 40px 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      max-width: 700px;
+      margin: 40px auto;
+      text-align: center;
+      user-select: none;
+    }
+    .contact h2 {
+      margin-bottom: 30px;
+    }
+    .contact p.intro {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      color: var(--text-dark);
+      user-select: text;
+    }
+
+    /* Contact buttons & info */
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 35px;
+    }
+    .contact-buttons a {
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.3s, transform 0.15s ease;
+      user-select: none;
+    }
+    .contact-buttons a:active {
+      transform: scale(var(--btn-zoom-scale));
+      transition: transform 0.1s ease;
+    }
+    .contact-buttons a:hover {
+      background: var(--accent);
+    }
+
+    /* Icons for phone and social media */
+    .icon {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      flex-shrink: 0;
+    }
+
+    /* Contact info text blocks */
+    .contact-info {
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto 30px;
+      color: #444;
+      font-size: 0.9rem;
+      user-select: text;
+    }
+    .contact-info strong {
+      color: var(--primary);
+    }
+
+    /* Social media buttons */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--primary);
+      border-radius: 50%;
+      transition: background 0.3s, transform 0.15s ease;
+      color: white;
+      text-decoration: none;
+      user-select: none;
+    }
+    .social-links a:active {
+      transform: scale(var(--btn-zoom-scale));
+      transition: transform 0.1s ease;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+    }
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+    }
+
+    /* Physical address & map */
+    .address-map {
+      max-width: 400px;
+      margin: 0 auto 25px;
+      font-size: 0.9rem;
+      color: #444;
+      user-select: text;
+    }
+    .map-placeholder {
+      margin: 0 auto;
+      width: 300px;
+      height: 200px;
+      border: 2px solid var(--primary);
+      border-radius: 12px;
+      background: linear-gradient(135deg, #d0d8ff, #a0b3ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 0 15px rgba(102, 81, 255, 0.4);
+      margin-bottom: 40px;
+      user-select: none;
+    }
+
+    /* Operating hours */
+    .hours {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-top: 10px;
+      user-select: text;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      font-size: 14px;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      header nav {
+        justify-content: center;
+        gap: 15px;
+      }
+      nav ul {
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .contact-buttons {
+        flex-direction: column;
+      }
+      .contact-buttons a {
+        justify-content: center;
+      }
+      .address-map, .map-placeholder {
+        width: 100%;
+        max-width: none;
+        height: 180px;
+      }
+    }
+
+    /* Orientation adjustments */
+    @media (orientation: landscape) and (max-width: 800px) {
+      section {
+        padding: 40px 15px;
+      }
+      .hero {
+        padding: 40px 15px 60px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Edmar Salac</h1>
+      <ul>
+        <li><a href="#home" aria-label="Home">Home</a></li>
+        <li><a href="#about" aria-label="About">About</a></li>
+        <li><a href="#projects" aria-label="Projects">Projects</a></li>
+        <li><a href="#education" aria-label="Education">Education</a></li>
+        <li><a href="#contact" aria-label="Contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <img src="profile.jpg" alt="Profile Picture of Edmar Salac" />
+    <h2>Hello, I'm Edmar Salac</h2>
+    <p>Aspiring IT professional, passionate about technology, problem-solving, and continuous learning.</p>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Me</h2>
+    <p>I enjoy exploring new technologies, working on creative projects, and learning skills that help me grow personally and professionally.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Personal Website</h3>
+        <p>A simple, functional website built using HTML and CSS.</p>
+      </div>
+      <div class="card">
+        <h3>Database Project</h3>
+        <p>Designed a relational database with proper naming conventions and relationships.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Davao del Sur State College</h3>
+        <p>Currently pursuing studies in Information Technology, with focus on systems, databases, and web development.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-label="Contact section with call to action">
+    <h2>Contact Me</h2>
+    <p class="intro">I'd love to hear from you! Reach out via email, phone, or through social media.</p>
+
+    <div class="contact-buttons">
+      <a href="mailto:ediwaw@gmail.com" aria-label="Send Email to Edmar Salac">Email</a>
+      <a href="tel:+639534766922" aria-label="Call Phone Number 09534766922" style="gap: 8px; padding-left: 12px; padding-right: 12px;">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.091 15.091 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.5a1 1 0 01-1 1A16 16 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11l-2.24 2.23z" /></svg>
+        09534766922
+      </a>
+    </div>
+
+    <div class="social-links" aria-label="Social Media Links">
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook Profile">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M22.675 0h-21.35C.592 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.466.098 2.799.142v3.243l-1.922.001c-1.507 0-1.799.716-1.799 1.766v2.317h3.595l-.468 3.622h-3.127V24h6.127c.732 0 1.325-.594 1.325-1.324V1.325C24 .593 23.408 0 22.675 0z" />
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.041-1.856-3.041-1.857 0-2.141 1.447-2.141 2.942v5.668H9.343V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.372-1.85 3.602 0 4.269 2.37 4.269 5.453v6.288zM5.337 7.433a2.064 2.064 0 11.001-4.127 2.063 2.063 0 01-.001 4.127zm1.778 13.02H3.559V9h3.556v11.453zM22.225 0H1.771C.792 0 0 .77 0 1.722v20.555C0 23.23.792 24 1.771 24h20.451c.979 0 1.778-.77 1.778-1.722V1.722C24 .77 23.204 0 22.225 0z" />
+        </svg>
+      </a>
+      <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub Profile">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M12 0C5.373 0 0 5.373 0 12a12 12 0 008.205 11.384c.6.113.82-.26.82-.577 0-.287-.011-1.044-.017-2.051-3.338.724-4.042-1.612-4.042-1.612-.546-1.386-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.204.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.996.108-.775.42-1.305.763-1.605-2.665-.302-5.466-1.333-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.124-.303-.535-1.524.118-3.176 0 0 1.008-.322 3.3 1.23A11.46 11.46 0 0112 6.845c1.02.005 2.047.138 3.005.404 2.29-1.553 3.297-1.23 3.297-1.23.656 1.653.245 2.874.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.609-2.805 5.624-5.475 5.92.432.372.815 1.106.815 2.229 0 1.608-.015 2.903-.015 3.296 0 .32.217.695.825.576A12.013 12.013 0 0024 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="contact-info">
+      <p><strong>Physical Address:</strong><br />Santa Ana, Mandaluyong, PH, 1002</p>
+      <div class="map-placeholder" aria-label="Map placeholder showing location">
+        Map Preview
+      </div>
+      <p class="hours"><strong>Operating Hours:</strong><br />Monday - Friday: 9 AM - 6 PM<br />Saturday - Sunday: Closed</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Edmar Salac. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
