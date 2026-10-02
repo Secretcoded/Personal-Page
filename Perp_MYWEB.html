@@ -2,16 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Edmar Salac | Personal Page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet" />
+  <title>Edmar Salac | IT Student &amp; Aspiring Web Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Edmar Salac — Information Technology student at Davao del Sur State College, focused on systems, databases, and web development." />
+  <meta name="author" content="Edmar Salac" />
+  <meta name="theme-color" content="#6a11cb" />
+
+  <!-- Social share previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Edmar Salac | IT Student &amp; Aspiring Web Developer" />
+  <meta property="og:description" content="Information Technology student focused on systems, databases, and web development." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/232351128?v=4" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%236a11cb'/%3E%3Cstop offset='1' stop-color='%232575fc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='700' font-size='26' fill='white' text-anchor='middle'%3EES%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #6a11cb;
       --accent: #2575fc;
-      --bg-light: #f9f9f9;
-      --text-dark: #333;
-      --btn-zoom-scale: 1.1;
+      --bg: #f9f9f9;
+      --surface: #fff;
+      --text: #333;
+      --text-muted: #555;
+      --border: rgba(0, 0, 0, 0.08);
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+      --chip-bg: rgba(106, 17, 203, 0.08);
+      --heading: var(--primary);
+      --header-h: 64px;
+      --btn-zoom-scale: 1.05;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121218;
+        --surface: #1c1c26;
+        --text: #e6e6ee;
+        --text-muted: #b4b4c4;
+        --border: rgba(255, 255, 255, 0.08);
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.6);
+        --chip-bg: rgba(140, 120, 255, 0.15);
+        --heading: #b08cff;
+        --accent: #6ea2ff;
+      }
     }
 
     * {
@@ -20,19 +56,43 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--header-h);
+    }
+
     body {
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
-      background: var(--bg-light);
-      color: var(--text-dark);
-      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--text);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 8px;
+      background: var(--primary);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      z-index: 2000;
+    }
+    .skip-link:focus {
+      left: 8px;
+    }
+
+    /* Header */
     header {
-      background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      background: var(--surface);
+      box-shadow: 0 2px 8px var(--border);
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -41,58 +101,57 @@
     header nav {
       max-width: 1000px;
       margin: auto;
-      padding: 15px 20px;
+      padding: 12px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 10px;
     }
 
-    header h1 {
+    .brand {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
       font-weight: 600;
-      color: var(--primary);
-      user-select: none;
+      color: var(--heading);
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 6px;
     }
 
-    nav a {
+    nav ul a {
       text-decoration: none;
-      color: var(--text-dark);
+      color: var(--text);
       font-weight: 600;
-      position: relative;
       padding: 8px 12px;
       border-radius: 8px;
-      transition: color 0.3s, transform 0.2s ease;
-      user-select: none;
-      cursor: pointer;
+      transition: color 0.3s, background-color 0.3s, transform 0.2s ease;
       display: inline-block;
+      white-space: nowrap;
     }
-    /* Zoom effect on click */
-    nav a:active {
+    nav ul a:active {
       transform: scale(var(--btn-zoom-scale));
-      transition: transform 0.1s ease;
     }
-
-    nav a:hover {
+    nav ul a:hover,
+    nav ul a.active {
       color: var(--accent);
       background-color: rgba(37, 117, 252, 0.1);
     }
 
-    /* Hero */
+    /* Hero (full-width gradient) */
     .hero {
       text-align: center;
-      padding: 60px 20px 80px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-      color: white;
+      padding: 70px 20px 90px;
+      background: linear-gradient(to right, var(--primary), #2575fc);
+      color: #fff;
+    }
+    .hero-inner {
+      max-width: 700px;
+      margin: auto;
     }
     .hero img {
       width: clamp(120px, 20vw, 150px);
@@ -101,366 +160,458 @@
       object-fit: cover;
       margin-bottom: 20px;
       border: 4px solid #fff;
-      transition: transform 0.3s ease;
-      user-select: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.2);
     }
-    .hero h2 {
+    .hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.5rem);
-      margin-bottom: 10px;
-      user-select: text;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .hero .tagline {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      opacity: 0.95;
+      margin-bottom: 14px;
     }
     .hero p {
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      font-size: clamp(1rem, 2vw, 1.05rem);
       max-width: 600px;
       margin: auto;
-      user-select: text;
+      opacity: 0.9;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s, transform 0.15s ease;
+    }
+    .btn:active {
+      transform: scale(var(--btn-zoom-scale));
+    }
+    .btn-light {
+      background: #fff;
+      color: var(--primary);
+    }
+    .btn-light:hover {
+      background: #f0e8ff;
+    }
+    .btn-outline {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #2575fc;
+    }
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
     }
 
     /* Sections */
-    section {
+    main section {
       max-width: 1000px;
       margin: auto;
       padding: 60px 20px;
     }
     section h2 {
       font-family: 'Poppins', sans-serif;
-      font-size: clamp(1.5rem, 2vw, 2rem);
-      margin-bottom: 20px;
-      color: var(--primary);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      margin-bottom: 24px;
+      color: var(--heading);
       text-align: center;
-      user-select: text;
     }
 
-    .about {
+    .about p {
       text-align: center;
       font-size: clamp(1rem, 1.5vw, 1.1rem);
       max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      user-select: text;
+      margin: 0 auto 14px;
     }
 
-    /* Cards layout */
+    /* Skills */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      list-style: none;
+      max-width: 750px;
+      margin: auto;
+    }
+    .chips li {
+      background: var(--chip-bg);
+      color: var(--heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: 999px;
+    }
+
+    /* Cards */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
-
     .card {
-      background: #fff;
-      padding: 20px;
+      background: var(--surface);
+      padding: 22px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: var(--shadow);
       transition: transform 0.3s, box-shadow 0.3s;
-      user-select: text;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      box-shadow: var(--shadow-hover);
     }
     .card h3 {
       font-family: 'Poppins', sans-serif;
       font-size: 1.1rem;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--accent);
-      user-select: text;
     }
     .card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+    .card .meta {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      list-style: none;
+      margin-top: 14px;
+    }
+    .tags li {
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--chip-bg);
+      color: var(--heading);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .card-link {
+      margin-top: auto;
+      padding-top: 14px;
+      font-weight: 600;
       font-size: 0.9rem;
-      color: #555;
-      user-select: text;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .card-link:hover {
+      text-decoration: underline;
     }
 
-    /* Contact Section */
-    .contact {
-      background: #fff;
-      padding: 40px 20px;
+    /* Contact */
+    main section.contact {
+      background: var(--surface);
+      padding: 44px 24px;
       border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
       max-width: 700px;
-      margin: 40px auto;
+      margin: 40px auto 60px;
       text-align: center;
-      user-select: none;
     }
-    .contact h2 {
-      margin-bottom: 30px;
-    }
-    .contact p.intro {
-      font-size: 1rem;
+    .contact .intro {
       margin-bottom: 25px;
-      color: var(--text-dark);
-      user-select: text;
     }
-
-    /* Contact buttons & info */
     .contact-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
       justify-content: center;
-      margin-bottom: 35px;
-    }
-    .contact-buttons a {
-      background: var(--primary);
-      color: #fff;
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 30px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: background 0.3s, transform 0.15s ease;
-      user-select: none;
-    }
-    .contact-buttons a:active {
-      transform: scale(var(--btn-zoom-scale));
-      transition: transform 0.1s ease;
-    }
-    .contact-buttons a:hover {
-      background: var(--accent);
+      margin-bottom: 30px;
     }
 
-    /* Icons for phone and social media */
-    .icon {
-      width: 20px;
-      height: 20px;
-      fill: white;
-      flex-shrink: 0;
-    }
-
-    /* Contact info text blocks */
-    .contact-info {
-      text-align: left;
-      max-width: 400px;
-      margin: 0 auto 30px;
-      color: #444;
-      font-size: 0.9rem;
-      user-select: text;
-    }
-    .contact-info strong {
-      color: var(--primary);
-    }
-
-    /* Social media buttons */
     .social-links {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 20px;
       margin-bottom: 30px;
     }
     .social-links a {
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       background: var(--primary);
       border-radius: 50%;
       transition: background 0.3s, transform 0.15s ease;
-      color: white;
-      text-decoration: none;
-      user-select: none;
+    }
+    .social-links a:hover {
+      background: #2575fc;
     }
     .social-links a:active {
       transform: scale(var(--btn-zoom-scale));
-      transition: transform 0.1s ease;
-    }
-    .social-links a:hover {
-      background: var(--accent);
     }
     .social-links svg {
       width: 20px;
       height: 20px;
-      fill: white;
+      fill: #fff;
     }
 
-    /* Physical address & map */
-    .address-map {
-      max-width: 400px;
-      margin: 0 auto 25px;
-      font-size: 0.9rem;
-      color: #444;
-      user-select: text;
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      text-align: left;
+      font-size: 0.95rem;
+      color: var(--text-muted);
     }
-    .map-placeholder {
-      margin: 0 auto;
-      width: 300px;
-      height: 200px;
-      border: 2px solid var(--primary);
+    .contact-info > div {
+      background: var(--bg);
       border-radius: 12px;
-      background: linear-gradient(135deg, #d0d8ff, #a0b3ff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--primary);
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      box-shadow: 0 0 15px rgba(102, 81, 255, 0.4);
-      margin-bottom: 40px;
-      user-select: none;
+      padding: 16px 18px;
     }
-
-    /* Operating hours */
-    .hours {
-      font-size: 0.9rem;
-      color: var(--text-dark);
-      margin-top: 10px;
-      user-select: text;
+    .contact-info strong {
+      display: block;
+      color: var(--heading);
+      margin-bottom: 4px;
+    }
+    .contact-info a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: #333;
-      color: white;
+      background: #222;
+      color: #ddd;
       font-size: 14px;
-      user-select: none;
+    }
+    footer a {
+      color: #fff;
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
+    @media (max-width: 720px) {
       header nav {
-        justify-content: center;
-        gap: 15px;
+        flex-direction: column;
+        padding: 10px 12px;
+        gap: 4px;
       }
       nav ul {
-        justify-content: center;
-        gap: 15px;
+        width: 100%;
+        justify-content: safe center;
+        gap: 0;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      nav ul::-webkit-scrollbar {
+        display: none;
+      }
+      nav ul a {
+        padding: 6px 8px;
+        font-size: 0.9rem;
+      }
+      :root {
+        --header-h: 100px;
       }
     }
 
     @media (max-width: 600px) {
-      .hero h2 {
-        font-size: 1.6rem;
+      main section {
+        padding: 44px 16px;
       }
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
+      main section.contact {
+        margin: 20px 16px 40px;
+        padding: 32px 16px;
+      }
+      .contact-buttons .btn {
         width: 100%;
-        align-items: center;
-      }
-      .cards {
-        grid-template-columns: 1fr;
-      }
-      .contact-buttons {
-        flex-direction: column;
-      }
-      .contact-buttons a {
         justify-content: center;
       }
-      .address-map, .map-placeholder {
-        width: 100%;
-        max-width: none;
-        height: 180px;
-      }
     }
 
-    /* Orientation adjustments */
-    @media (orientation: landscape) and (max-width: 800px) {
-      section {
-        padding: 40px 15px;
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
-      .hero {
-        padding: 40px 15px 60px;
+      * {
+        transition: none !important;
       }
     }
-
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header>
-    <nav>
-      <h1>Edmar Salac</h1>
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#home">Edmar Salac</a>
       <ul>
-        <li><a href="#home" aria-label="Home">Home</a></li>
-        <li><a href="#about" aria-label="About">About</a></li>
-        <li><a href="#projects" aria-label="Projects">Projects</a></li>
-        <li><a href="#education" aria-label="Education">Education</a></li>
-        <li><a href="#contact" aria-label="Contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero" id="home">
-    <img src="profile.jpg" alt="Profile Picture of Edmar Salac" />
-    <h2>Hello, I'm Edmar Salac</h2>
-    <p>Aspiring IT professional, passionate about technology, problem-solving, and continuous learning.</p>
-  </section>
-
-  <section class="about" id="about">
-    <h2>About Me</h2>
-    <p>I enjoy exploring new technologies, working on creative projects, and learning skills that help me grow personally and professionally.</p>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Personal Website</h3>
-        <p>A simple, functional website built using HTML and CSS.</p>
-      </div>
-      <div class="card">
-        <h3>Database Project</h3>
-        <p>Designed a relational database with proper naming conventions and relationships.</p>
+  <div class="hero" id="home">
+    <div class="hero-inner">
+      <!-- Uses profile.jpg if present; otherwise falls back to the GitHub avatar -->
+      <img src="profile.jpg" alt="Portrait of Edmar Salac"
+           onerror="if(this.dataset.fallback){this.style.display='none';}else{this.dataset.fallback=1;this.src='https://avatars.githubusercontent.com/u/232351128?v=4';}" />
+      <h1>Hi, I'm Edmar Salac</h1>
+      <p class="tagline">IT Student &middot; Aspiring Web Developer</p>
+      <p>Passionate about technology, problem-solving, and continuous learning &mdash; currently building my skills in systems, databases, and the web.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="#projects">View my work</a>
+        <a class="btn btn-outline" href="#contact">Get in touch</a>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Davao del Sur State College</h3>
-        <p>Currently pursuing studies in Information Technology, with focus on systems, databases, and web development.</p>
+  <main id="main">
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <p>I'm an Information Technology student at Davao del Sur State College. I enjoy exploring new technologies, working on creative projects, and picking up skills that help me grow personally and professionally.</p>
+      <p>Right now I'm focused on building a strong foundation in web development and database design, and I'm open to internships and opportunities where I can learn from real-world projects.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills &amp; Tools</h2>
+      <ul class="chips">
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>Responsive Design</li>
+        <li>Relational Databases</li>
+        <li>SQL</li>
+        <li>Database Design &amp; ERDs</li>
+        <li>Systems Analysis</li>
+        <li>Git &amp; GitHub</li>
+        <li>Problem Solving</li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Personal Website</h3>
+          <p>This site &mdash; a responsive single-page portfolio built from scratch with semantic HTML and CSS, including mobile layouts and dark mode.</p>
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>Responsive</li></ul>
+          <a class="card-link" href="https://github.com/Secretcoded/Personal-Page" target="_blank" rel="noopener">View source &rarr;</a>
+        </article>
+        <article class="card">
+          <h3>Database Project</h3>
+          <p>Designed a relational database with clear naming conventions, normalized tables, and well-defined relationships between entities.</p>
+          <ul class="tags"><li>Database Design</li><li>SQL</li></ul>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" id="contact" aria-label="Contact section with call to action">
-    <h2>Contact Me</h2>
-    <p class="intro">I'd love to hear from you! Reach out via email, phone, or through social media.</p>
-
-    <div class="contact-buttons">
-      <a href="mailto:ediwaw@gmail.com" aria-label="Send Email to Edmar Salac">Email</a>
-      <a href="tel:+639534766922" aria-label="Call Phone Number 09534766922" style="gap: 8px; padding-left: 12px; padding-right: 12px;">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.091 15.091 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.5a1 1 0 01-1 1A16 16 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11l-2.24 2.23z" /></svg>
-        09534766922
-      </a>
-    </div>
-
-    <div class="social-links" aria-label="Social Media Links">
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M22.675 0h-21.35C.592 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.466.098 2.799.142v3.243l-1.922.001c-1.507 0-1.799.716-1.799 1.766v2.317h3.595l-.468 3.622h-3.127V24h6.127c.732 0 1.325-.594 1.325-1.324V1.325C24 .593 23.408 0 22.675 0z" />
-        </svg>
-      </a>
-      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.041-1.856-3.041-1.857 0-2.141 1.447-2.141 2.942v5.668H9.343V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.372-1.85 3.602 0 4.269 2.37 4.269 5.453v6.288zM5.337 7.433a2.064 2.064 0 11.001-4.127 2.063 2.063 0 01-.001 4.127zm1.778 13.02H3.559V9h3.556v11.453zM22.225 0H1.771C.792 0 0 .77 0 1.722v20.555C0 23.23.792 24 1.771 24h20.451c.979 0 1.778-.77 1.778-1.722V1.722C24 .77 23.204 0 22.225 0z" />
-        </svg>
-      </a>
-      <a href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub Profile">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M12 0C5.373 0 0 5.373 0 12a12 12 0 008.205 11.384c.6.113.82-.26.82-.577 0-.287-.011-1.044-.017-2.051-3.338.724-4.042-1.612-4.042-1.612-.546-1.386-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.204.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.996.108-.775.42-1.305.763-1.605-2.665-.302-5.466-1.333-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.124-.303-.535-1.524.118-3.176 0 0 1.008-.322 3.3 1.23A11.46 11.46 0 0112 6.845c1.02.005 2.047.138 3.005.404 2.29-1.553 3.297-1.23 3.297-1.23.656 1.653.245 2.874.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.609-2.805 5.624-5.475 5.92.432.372.815 1.106.815 2.229 0 1.608-.015 2.903-.015 3.296 0 .32.217.695.825.576A12.013 12.013 0 0024 12c0-6.627-5.373-12-12-12z" />
-        </svg>
-      </a>
-    </div>
-
-    <div class="contact-info">
-      <p><strong>Physical Address:</strong><br />Santa Ana, Mandaluyong, PH, 1002</p>
-      <div class="map-placeholder" aria-label="Map placeholder showing location">
-        Map Preview
+    <section id="education">
+      <h2>Education</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Davao del Sur State College</h3>
+          <p class="meta">Information Technology &middot; Currently enrolled</p>
+          <p>Coursework focused on systems, databases, and web development.</p>
+        </article>
       </div>
-      <p class="hours"><strong>Operating Hours:</strong><br />Monday - Friday: 9 AM - 6 PM<br />Saturday - Sunday: Closed</p>
-    </div>
-  </section>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Me</h2>
+      <p class="intro">I'd love to hear from you &mdash; whether it's about a project, an internship, or just to connect.</p>
+
+      <div class="contact-buttons">
+        <a class="btn btn-primary" href="mailto:ediwaw@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4.24l-8 5-8-5V6l8 5 8-5v2.24z"/></svg>
+          ediwaw@gmail.com
+        </a>
+        <a class="btn btn-primary" href="tel:+639534766922">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6.62 10.79a15.091 15.091 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.36 11.36 0 003.55.57 1 1 0 011 1v3.5a1 1 0 01-1 1A16 16 0 013 5a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.21 1.11l-2.24 2.23z"/></svg>
+          0953 476 6922
+        </a>
+      </div>
+
+      <div class="social-links" aria-label="Social media links">
+        <a href="https://github.com/Secretcoded" target="_blank" rel="noopener" aria-label="GitHub profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.373 0 0 5.373 0 12a12 12 0 008.205 11.384c.6.113.82-.26.82-.577 0-.287-.011-1.044-.017-2.051-3.338.724-4.042-1.612-4.042-1.612-.546-1.386-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.204.085 1.838 1.237 1.838 1.237 1.07 1.834 2.807 1.304 3.492.996.108-.775.42-1.305.763-1.605-2.665-.302-5.466-1.333-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.124-.303-.535-1.524.118-3.176 0 0 1.008-.322 3.3 1.23A11.46 11.46 0 0112 6.845c1.02.005 2.047.138 3.005.404 2.29-1.553 3.297-1.23 3.297-1.23.656 1.653.245 2.874.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.609-2.805 5.624-5.475 5.92.432.372.815 1.106.815 2.229 0 1.608-.015 2.903-.015 3.296 0 .32.217.695.825.576A12.013 12.013 0 0024 12c0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <!--
+          TODO: add your profile URLs, then uncomment.
+        <a href="https://www.facebook.com/YOUR-USERNAME" target="_blank" rel="noopener" aria-label="Facebook profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M22.675 0h-21.35C.592 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.126V8.413c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.466.098 2.799.142v3.243l-1.922.001c-1.507 0-1.799.716-1.799 1.766v2.317h3.595l-.468 3.622h-3.127V24h6.127c.732 0 1.325-.594 1.325-1.324V1.325C24 .593 23.408 0 22.675 0z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/YOUR-USERNAME" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.026-3.041-1.856-3.041-1.857 0-2.141 1.447-2.141 2.942v5.668H9.343V9h3.414v1.561h.048c.476-.9 1.637-1.85 3.372-1.85 3.602 0 4.269 2.37 4.269 5.453v6.288zM5.337 7.433a2.064 2.064 0 11.001-4.127 2.063 2.063 0 01-.001 4.127zm1.778 13.02H3.559V9h3.556v11.453zM22.225 0H1.771C.792 0 0 .77 0 1.722v20.555C0 23.23.792 24 1.771 24h20.451c.979 0 1.778-.77 1.778-1.722V1.722C24 .77 23.204 0 22.225 0z"/></svg>
+        </a>
+        -->
+      </div>
+
+      <div class="contact-info">
+        <div>
+          <strong>Location</strong>
+          Santa Ana, Mandaluyong, PH, 1002<br />
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Santa+Ana%2C+Mandaluyong%2C+Philippines" target="_blank" rel="noopener">View on map &rarr;</a>
+        </div>
+        <div>
+          <strong>Availability</strong>
+          Monday &ndash; Friday: 9 AM &ndash; 6 PM<br />
+          Weekends: Unavailable
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Edmar Salac. All Rights Reserved.</p>
+    <p>&copy; <span id="year">2026</span> Edmar Salac &middot; Built with HTML &amp; CSS &middot; <a href="https://github.com/Secretcoded/Personal-Page" target="_blank" rel="noopener">Source</a></p>
   </footer>
+
+  <script>
+    // Keep the copyright year current
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Highlight the nav link for the section in view
+    const links = document.querySelectorAll('nav ul a');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        links.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('main section[id]').forEach((s) => observer.observe(s));
+  </script>
 </body>
 </html>
